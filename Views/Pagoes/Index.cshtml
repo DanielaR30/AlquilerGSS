@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AlquilerGSS.Models.Pago>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pagos</h1>
+
+<p>
+    <a class="btn btn-success btn-sm" asp-action="Create">Agregar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Idalquiler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idalquiler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idpago">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idpago">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idpago">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
